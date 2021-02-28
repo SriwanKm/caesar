@@ -8,6 +8,41 @@ SHIFT = 3
 WHITESPACE = " "
 
 
+def greeting():
+    print("""
+    ╭╮╭╮╭┳━━━┳╮╱╱╭━━━┳━━━┳━╮╭━┳━━━╮
+    ┃┃┃┃┃┃╭━━┫┃╱╱┃╭━╮┃╭━╮┃┃╰╯┃┃╭━━╯
+    ┃┃┃┃┃┃╰━━┫┃╱╱┃┃╱╰┫┃╱┃┃╭╮╭╮┃╰━━╮
+    ┃╰╯╰╯┃╭━━┫┃╱╭┫┃╱╭┫┃╱┃┃┃┃┃┃┃╭━━╯
+    ╰╮╭╮╭┫╰━━┫╰━╯┃╰━╯┃╰━╯┃┃┃┃┃┃╰━━╮
+    ╱╰╯╰╯╰━━━┻━━━┻━━━┻━━━┻╯╰╯╰┻━━━╯""")
+    start = input("To start the program type e to encode, d to decode, or q to quit: ")
+    start_input(start)
+
+
+def start_input(start):
+    if start == "q":
+        print("""
+███████████████████████████████████████
+█▄─▄─▀█▄─█─▄█▄─▄▄─███▄─▄─▀█▄─█─▄█▄─▄▄─█
+██─▄─▀██▄─▄███─▄█▀████─▄─▀██▄─▄███─▄█▀█
+▀▄▄▄▄▀▀▀▄▄▄▀▀▄▄▄▄▄▀▀▀▄▄▄▄▀▀▀▄▄▄▀▀▄▄▄▄▄▀""")
+        return
+
+    elif start == "e":
+        to_encode()
+        start = input("Type e to encode, d to decode, or q to quit: ")
+        start_input(start)
+
+    elif start == "d":
+        to_decode()
+        start = input("Type e to encode, d to decode, or q to quit: ")
+        start_input(start)
+    else:
+        start = input("Type e to encode, d to decode, or q to quit: ")
+        start_input(start)
+
+
 def validate_input(text):
     words = input(text)
     while not words.islower() or not words.replace(" ", "").isalpha():
@@ -63,28 +98,4 @@ def decode_letter(letter):
     return chr(new_letter)
 
 
-print("""
-╭╮╭╮╭┳━━━┳╮╱╱╭━━━┳━━━┳━╮╭━┳━━━╮
-┃┃┃┃┃┃╭━━┫┃╱╱┃╭━╮┃╭━╮┃┃╰╯┃┃╭━━╯
-┃┃┃┃┃┃╰━━┫┃╱╱┃┃╱╰┫┃╱┃┃╭╮╭╮┃╰━━╮
-┃╰╯╰╯┃╭━━┫┃╱╭┫┃╱╭┫┃╱┃┃┃┃┃┃┃╭━━╯
-╰╮╭╮╭┫╰━━┫╰━╯┃╰━╯┃╰━╯┃┃┃┃┃┃╰━━╮
-╱╰╯╰╯╰━━━┻━━━┻━━━┻━━━┻╯╰╯╰┻━━━╯""")
-
-while True:
-    start = input("To start the program type e to encode, d to decode, or q to quit: ")
-    if start == "q":
-        print("""
-███████████████████████████████████████
-█▄─▄─▀█▄─█─▄█▄─▄▄─███▄─▄─▀█▄─█─▄█▄─▄▄─█
-██─▄─▀██▄─▄███─▄█▀████─▄─▀██▄─▄███─▄█▀█
-▀▄▄▄▄▀▀▀▄▄▄▀▀▄▄▄▄▄▀▀▀▄▄▄▄▀▀▀▄▄▄▀▀▄▄▄▄▄▀""")
-
-    elif start == "e":
-        to_encode()
-
-    elif start == "d":
-        to_decode()
-
-
-# oryh ph olnh brx vdb
+greeting()
